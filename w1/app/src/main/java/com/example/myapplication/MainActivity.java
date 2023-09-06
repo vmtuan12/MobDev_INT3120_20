@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.NumberPicker;
 
 import com.example.myapplication.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
+
+    private NumberPicker numberPicker;
 
     ActivityMainBinding binding;
 
@@ -24,6 +27,19 @@ public class MainActivity extends AppCompatActivity {
                 Integer addedAmount = Integer.parseInt(sText);
                 binding.setAmount(binding.getAmount() + addedAmount);
             }
+        });
+
+        numberPicker = findViewById(R.id.numberPicker);
+        numberPicker.setEnabled(true);
+        numberPicker.setFocusable(false);
+        numberPicker.setClickable(false);
+        numberPicker.setFocusableInTouchMode(false);
+        numberPicker.setWrapSelectorWheel(true);
+        numberPicker.setMinValue(0);
+        numberPicker.setMaxValue(1000);
+        numberPicker.setValue(999);
+        numberPicker.setOnValueChangedListener((picker, oldVal, newVal) -> {
+
         });
     }
 }
