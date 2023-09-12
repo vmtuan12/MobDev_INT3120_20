@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TableActivity">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#2acc97"
+                android:theme="?attr/actionBarTheme">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Essentials Table"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </androidx.appcompat.widget.Toolbar>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="14sp"
+            android:orientation="vertical"
+            >
+            <EditText
+                android:id="@+id/name_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="Enter your name"
+                android:textStyle="bold"
+                android:paddingVertical="15sp"
+                android:theme="@style/EditTextTheme"/>
+
+            <EditText
+                android:id="@+id/phone_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="Enter your phone"
+                android:textStyle="bold"
+                android:paddingVertical="15sp"
+                android:theme="@style/EditTextTheme"/>
+        </LinearLayout>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="14sp"
+            android:orientation="horizontal"
+            android:id="@+id/cheese_group"
+
+            >
+
+            <RadioButton
+                android:id="@+id/cheese"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cheese" />
+
+            <RadioButton
+                android:id="@+id/cheese2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2xCheese"
+                android:layout_marginHorizontal="15sp"/>
+
+            <RadioButton
+                android:id="@+id/cheese_none"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="None" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="14sp"
+            android:orientation="horizontal"
+            android:id="@+id/shape_group"
+            >
+
+            <RadioButton
+                android:id="@+id/radio_square"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Square" />
+
+            <RadioButton
+                android:id="@+id/radio_round"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Round"
+                android:layout_marginHorizontal="15sp" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="14sp">
+            <CheckBox
+                android:id="@+id/pepperoni"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pepperoni"
+                android:onClick="onCheckboxClicked" />
+
+            <CheckBox
+                android:id="@+id/mushroom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mushroom"
+                android:layout_marginHorizontal="15sp"
+                android:onClick="onCheckboxClicked" />
+
+            <CheckBox
+                android:id="@+id/veg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Veggies"
+                android:onClick="onCheckboxClicked" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your ordering"
+            android:paddingHorizontal="14sp"
+            android:layout_marginTop="8sp"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="match_parent"
+            android:layout_height="135dp"
+            android:layout_marginHorizontal="14sp"
+            android:background="#DADADA"
+            android:text="" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="14sp"
+            android:layout_marginTop="10sp"
+            android:orientation="horizontal"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                >
+                <Button
+                    android:id="@+id/button_exit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_corner"
+                    android:elevation="5dp"
+                    android:stateListAnimator="@null"
+                    android:text="Exit"
+                    android:layout_gravity="top|left"
+                    android:textColor="#1d1d1d"
+                    android:translationZ="5dp"
+                    app:backgroundTint="@null" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                >
+                <Button
+                    android:id="@+id/button_order"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_corner"
+                    android:elevation="3dp"
+                    android:stateListAnimator="@null"
+                    android:text="Place order"
+                    android:textColor="#1d1d1d"
+                    android:translationZ="1dp"
+                    app:backgroundTint="@null" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="14sp"
+            android:layout_marginTop="25sp"
+            android:orientation="horizontal"
+            >
+            <Button
+                android:id="@+id/button_linear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_corner"
+                android:elevation="3dp"
+                android:stateListAnimator="@null"
+                android:text="Linear"
+                android:textColor="#1d1d1d"
+                android:translationZ="1dp"
+                app:backgroundTint="@null" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</TableLayout>
