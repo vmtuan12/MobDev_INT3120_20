@@ -6,8 +6,11 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.Spinner;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -15,11 +18,16 @@ import android.widget.TimePicker;
 import java.text.DateFormat;
 import java.util.Calendar;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
+
+    TextView selection;
+    String[] items = {"Android","IPhone","WindowsMobile","Blackberry","WebOS","Ubuntu","Windows7","Max OS X"};
 
     DateFormat fmtDateAndTime = DateFormat.getDateTimeInstance();
     TextView lblDateAndTime;
     Calendar myCalendar = Calendar.getInstance();
+
+    Spinner spin;
 
     DatePickerDialog.OnDateSetListener d = new DatePickerDialog.OnDateSetListener()
     {
@@ -76,9 +84,44 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         updateLabel();
+
+        selection = (TextView) findViewById(R.id.selection);
+        spin = (Spinner) findViewById(R.id.spinner);
+        spin.setOnItemSelectedListener(this);
+        ArrayAdapter<String> aa = new ArrayAdapter<String>(
+                this, android.R.layout.simple_spinner_item, items);
+        aa.setDropDownViewResource(
+                android.R.layout.simple_spinner_dropdown_item);
+        spin.setAdapter(aa);
+        spin.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (!b) {
+                    selection.setText("");
+                }
+            }
+        });
     }
 
     private void updateLabel() {
         lblDateAndTime.setText(fmtDateAndTime.format(myCalendar.getTime()));
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        selection.setText(items[i]);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+        selection.setText("");
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == spin) {
+            selection.setText("");
+        }
     }
 }
