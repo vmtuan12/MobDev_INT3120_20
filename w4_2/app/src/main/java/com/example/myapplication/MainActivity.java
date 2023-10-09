@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.BaseColumns;
 import android.view.View;
@@ -106,9 +107,11 @@ public class MainActivity extends AppCompatActivity {
         );
 
         List<Object> itemIds = new ArrayList<>();
-        while(cursor.moveToNext()) {
-            String data = cursor.getString(cursor.getColumnIndex("subtitle"));
-            itemIds.add(data);
+        if (cursor != null) {
+            while(cursor.moveToNext()) {
+                String data = cursor.getString(cursor.getColumnIndex("subtitle"));
+                itemIds.add(data);
+            }
         }
         System.out.println(itemIds);
     }

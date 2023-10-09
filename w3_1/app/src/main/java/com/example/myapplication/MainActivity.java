@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -54,10 +55,11 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.opt1) {
-            Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "You are currently at Main Activity", Toast.LENGTH_SHORT).show();
             return true;
         } else if (id == R.id.opt2) {
-            Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+            startActivity(intent);
             return true;
         } else {
             return super.onOptionsItemSelected(item);

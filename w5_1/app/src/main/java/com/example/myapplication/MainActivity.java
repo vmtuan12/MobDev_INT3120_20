@@ -76,8 +76,13 @@ public class MainActivity extends AppCompatActivity {
         values.put(UserProvider.name, ((EditText) findViewById(R.id.textName)).getText().toString());
 
         // inserting into database through content URI
-        ContentValues[] contentValues = {values, values, values};
-        getContentResolver().insert(UserProvider.CONTENT_URI, values);
+        ContentValues[] contentValues = new ContentValues[10];
+        for (int i = 0; i < contentValues.length; i++) {
+            contentValues[i] = new ContentValues();
+            contentValues[i].put(UserProvider.name, ((EditText) findViewById(R.id.textName)).getText().toString());
+        }
+
+        getContentResolver().bulkInsert(UserProvider.CONTENT_URI, contentValues);
 
         // displaying a toast message
         Toast.makeText(getBaseContext(), "New record inserted", Toast.LENGTH_LONG).show();

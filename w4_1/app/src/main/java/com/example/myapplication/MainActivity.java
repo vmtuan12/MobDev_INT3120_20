@@ -52,4 +52,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        try {
+            unregisterReceiver(broadcastReceiver);
+            System.out.println("yes");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
